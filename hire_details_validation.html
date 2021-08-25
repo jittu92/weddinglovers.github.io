@@ -1,0 +1,22 @@
+<?php
+	if (isset($_POST['mail_button'])) 
+	{
+		$client_name = $_POST['hire_name'];
+		$client_phone = $_POST['hire_phone'];
+		$client_email = $_POST['hire_email'];
+		$client_address = $_POST['hire_address'];
+		$client_date = $_POST['hire_date'];
+		$client_package= $_POST['hire_package'];
+		$client_message = $_POST['hire_message'];
+		$client_occasion= $_POST['hire_occasion'];
+		$email_body = "\nName: $client_name\nPhone: $client_phone\nEmail id: $client_email\nAddress: $client_address\nEvent Date: $client_date\nOccasion: $client_occasion\nPackage: $client_package\nMessage: $client_message";	
+		$headers = "From: $client_email\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+		$headers .= "Reply-To: $client_email";
+		$to = 'admin@weddinglovers.in'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+		$email_subject = "Email Received From: $client_name";	
+		mail($to,$email_subject,$email_body,$headers);
+		mail($client_email,"Email Received From: Wedding Lovers","Thank you for sending your details\nWe will contact you shortly","Reply-From: wedding lovers");
+		header('Location: http://www.weddinglovers.in/booking.html');
+		return true;	
+	}
+?>

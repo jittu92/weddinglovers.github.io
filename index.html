@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wedding Lovers</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <style type="text/css">
+        .someFont{font-family: 'Raleway', sans-serif;}
+        .left{text-align: right}
+        *{padding: 0px;margin: 0px;}
+        html{
+            height: 100%;width: 100%;
+        }
+        body{
+            height: 100%;width: 100%;
+        }
+        .cont{
+            float: left;
+            width: 25%;height: 100%;
+        }
+        .cont1{background: url("img/slide7.jpg");background-size: 950px 100%;background-position: -300px;background-repeat: none;}
+        .cont2{background: url("img/slide6.jpg");background-size: 1250px 100%;background-position: -650px;background-repeat: none;}
+        .cont3{background: url("img/slide2.jpg");background-size: 950px 100%;background-position: -300px;background-repeat: none;}
+        .cont4{background: url("img/slide4.jpg");background-size: 950px 100%;background-position: -500px;background-repeat: none;}
+        .resizeReduce{
+            float: left;
+            width: 20%;height: 100%;
+            background-size: 950px 100%;background-repeat: none;background-position: -200px;
+            transition: width ease-in-out .5s;
+        }
+
+        @media only screen and (max-width: 544px)
+        {
+            .cont{
+                float: none;
+                width: 100%;height: 25%;
+            }
+            .divCaption{visibility: hidden;display: none;}
+            .divCaption.left{visibility: visible;display: block;top: 35%;margin-right: 5%}
+            .divCaption.left > h1{font-size: 19px;}
+            .divCaption.left > h2{font-size: 13px;}
+            .captionContainer1 > br {display: none}
+            .captionContainer2 > br {display: none}
+            .captionContainer3 > br {display: none}
+            .captionContainer4 > br {display: none}
+            .cont1{background-size: 600px 400px;background-position: -140px 300px;background-repeat: none;}
+            .cont2{background: url("img/slide6.jpg");background-size: 600px 400px;background-position: -700px 300px;background-repeat: none;}
+            .cont3{background-size: 600px 400px;background-position: -250px;background-repeat: none;}
+            .cont4{background: url("img/slide5.jpg");background-size: 650px 450px;background-position: -100px;background-repeat: none;}
+        }
+        .resizeReduce1{float: left;width: 20%;height: 100%;background-size: 950px 100%;background-repeat: none;background-position: -300px;transition: width ease-in-out .5s, background-position ease-in-out .5s;}
+        .resizeReduce2{float: left;width: 20%;height: 100%;background-size: 1250px 100%;background-repeat: none;background-position: -670px;transition: width ease-in-out .5s, background-position ease-in-out .5s;}
+        .resizeReduce3{float: left;width: 20%;height: 100%;background-size: 950px 100%;background-repeat: none;background-position: -330px;transition: width ease-in-out .5s, background-position ease-in-out .5s;}
+        .resizeReduce4{float: left;width: 20%;height: 100%;background-size: 950px 100%;background-repeat: none;background-position: -500px;transition: width ease-in-out .5s, background-position ease-in-out .5s;}
+        .resizeIncrease{float: left;width: 40%;height: 100%;background-size:  950px 100%;background-repeat: none;background-position: -250px;transition: width ease-in-out .5s, background-position ease-in-out .5s;}
+        .resizeIncrease2{float: left;width: 40%;height: 100%;background-size:  1250px 100%;background-repeat: none;background-position: -500px;transition: width ease-in-out .5s, background-position ease-in-out .5s;}
+        .resizeIncrease3{float: left;width: 40%;height: 100%;background-size:  950px 100%;background-repeat: none;background-position: -170px;transition: width ease-in-out .5s, background-position ease-in-out .5s;}
+        .resizeIncrease4{float: left;width: 40%;height: 100%;background-size:  950px 100%;background-repeat: none;background-position: -370px;transition: width ease-in-out .5s, background-position ease-in-out .5s;}
+
+        .captionContainer1,.captionContainer2,.captionContainer3,.captionContainer4{
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right,rgba(0,0,0, 0), rgba(0,0,0,.7)), url();
+        }
+        .divCaption{
+            position: relative;
+            top:20%;
+            margin-left: 20%;
+            margin-right: 20%;
+            color: white;font-family: 'Open Sans', sans-serif;
+        }
+        @media only screen and (max-width: 768px) and (min-width: 545px)
+        {
+            .divCaption{
+                top:5%;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+            .someFont{
+                font-size:15px;
+            }
+        }
+        @media only screen and (max-width: 992px) and (min-width: 769px)
+        {
+            .divCaption{
+                top:10%;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+            .someFont{
+                font-size:15px;
+            }
+        }
+        @media only screen and (max-width: 1200px) and (min-width: 993px)
+        {
+            .divCaption{
+                top:10%;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+        }
+        .visible{
+            visibility: visible;
+            display: block;
+        }
+        .hidden{
+            visibility: hidden;
+            display: none;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        if ($(window).width()>544) {
+            $(document).ready(function() {
+                $("div.cont1").hover(function() {
+                    $(this).removeClass("cont");
+                    $(this).addClass("resizeIncrease");
+                    
+                    $(this).siblings("div.cont2").addClass("resizeReduce2");
+                    $(this).siblings("div.cont3").addClass("resizeReduce3");
+                    $(this).siblings("div.cont4").addClass("resizeReduce4");
+                    
+                    $("div.captionContainer1").removeClass("hidden");
+                    $("div.captionContainer1").addClass("visible");
+                }, function() {
+                    $(this).removeClass("resizeIncrease");
+                    $(this).addClass("cont");
+
+                    $(this).siblings("div.cont2").removeClass("resizeReduce2");
+                    $(this).siblings("div.cont3").removeClass("resizeReduce3");
+                    $(this).siblings("div.cont4").removeClass("resizeReduce4");
+
+                    $("div.captionContainer1").removeClass("visible");
+                    $("div.captionContainer1").addClass("hidden");
+                });
+            });
+            $(document).ready(function() {
+                $("div.cont2").hover(function() {
+                    $(this).removeClass("cont");
+                    $(this).addClass("resizeIncrease2");
+                    
+                    $(this).siblings("div.cont1").addClass("resizeReduce1");
+                    $(this).siblings("div.cont3").addClass("resizeReduce3");
+                    $(this).siblings("div.cont4").addClass("resizeReduce4");
+                    
+                    $("div.captionContainer2").removeClass("hidden");
+                    $("div.captionContainer2").addClass("visible");
+                }, function() {
+                    $(this).removeClass("resizeIncrease2");
+                    $(this).addClass("cont");
+
+                    $(this).siblings("div.cont1").removeClass("resizeReduce1");
+                    $(this).siblings("div.cont3").removeClass("resizeReduce3");
+                    $(this).siblings("div.cont4").removeClass("resizeReduce4");
+
+                    $("div.captionContainer2").removeClass("visible");
+                    $("div.captionContainer2").addClass("hidden");
+                });
+            });
+            $(document).ready(function() {
+                $("div.cont3").hover(function() {
+                    $(this).removeClass("cont");
+                    $(this).addClass("resizeIncrease3");
+                    
+                    $(this).siblings("div.cont1").addClass("resizeReduce1");
+                    $(this).siblings("div.cont2").addClass("resizeReduce2");
+                    $(this).siblings("div.cont4").addClass("resizeReduce4");
+                    
+                    $("div.captionContainer3").removeClass("hidden");
+                    $("div.captionContainer3").addClass("visible");
+                }, function() {
+                    $(this).removeClass("resizeIncrease3");
+                    $(this).addClass("cont");
+
+                    $(this).siblings("div.cont1").removeClass("resizeReduce1");
+                    $(this).siblings("div.cont2").removeClass("resizeReduce2");
+                    $(this).siblings("div.cont4").removeClass("resizeReduce4");
+
+                    $("div.captionContainer3").removeClass("visible");
+                    $("div.captionContainer3").addClass("hidden");
+                });
+            });
+            $(document).ready(function() {
+                $("div.cont4").hover(function() {
+                    $(this).removeClass("cont");
+                    $(this).addClass("resizeIncrease4");
+                    
+                    $(this).siblings("div.cont1").addClass("resizeReduce1");
+                    $(this).siblings("div.cont2").addClass("resizeReduce2");
+                    $(this).siblings("div.cont3").addClass("resizeReduce3");
+                    
+                    $("div.captionContainer4").removeClass("hidden");
+                    $("div.captionContainer4").addClass("visible");
+                }, function() {
+                    $(this).removeClass("resizeIncrease4");
+                    $(this).addClass("cont");
+
+                    $(this).siblings("div.cont1").removeClass("resizeReduce1");
+                    $(this).siblings("div.cont2").removeClass("resizeReduce2");
+                    $(this).siblings("div.cont3").removeClass("resizeReduce3");
+
+                    $("div.captionContainer4").removeClass("visible");
+                    $("div.captionContainer4").addClass("hidden");
+                });
+            });
+        }
+        else
+        {
+            $(document).ready(function() {
+                $("div.captionContainer1").removeClass("hidden");
+                $("div.captionContainer2").removeClass("hidden");
+                $("div.captionContainer3").removeClass("hidden");
+                $("div.captionContainer4").removeClass("hidden");
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="cont cont1">
+        <div class="captionContainer1 hidden">
+            <div class="divCaption">
+                <h1>WEDDING<br></h1>
+                <h2 class="someFont">LOVERS</h2>
+                <h6 class="someFont">TELL YOUR STORY WITH PICTURE</h6>
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br>
+            <div class="divCaption left">
+                <h1><a href="about.html" class="white-text">ABOUT</a><br></h1>
+                <h2 class="someFont">THE WEDDING LOVERS</h2>
+            </div>
+        </div>
+    </div>
+    <div class="cont cont2">
+        <div class="captionContainer2 hidden">
+            <div class="divCaption">
+                <h1>WEDDING<br></h1>
+                <h2 class="someFont">LOVERS</h2>
+                <h6 class="someFont">TELL YOUR STORY WITH PICTURE</h6>
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br>
+            <div class="divCaption left">
+                <h1><a href="works.html" class="white-text">WORKS</a><br></h1>
+                <h2 class="someFont">AS OUR PORTFOLIO</h2>
+            </div>
+        </div>
+    </div>
+    <div class="cont cont3">
+        <div class="captionContainer3 hidden">
+            <div class="divCaption">
+                <h1>WEDDING<br></h1>
+                <h2 class="someFont">LOVERS</h2>
+                <h6 class="someFont">TELL YOUR STORY WITH PICTURE</h6>
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><div class="divCaption left">
+                <h1><a href="package.html" class="white-text">PACKAGES</a><br></h1>
+                <h2 class="someFont">& EQUIPMENTS WE USE</h2>
+            </div>
+        </div>
+    </div>
+    <div class="cont cont4">
+        <div class="captionContainer4 hidden">
+            <div class="divCaption">
+                <h1>WEDDING<br></h1>
+                <h2 class="someFont">LOVERS</h2>
+                <h6 class="someFont">TELL YOUR STORY WITH PICTURE</h6>
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br>
+            <div class="divCaption left">
+                <h1><a href="contact.html" class="white-text">CONTACT</a><br></h1>
+                 <h2 class="someFont">US TO GET A QUOTE</h2>
+            </div>
+        </div>
+    </div>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</body>
+</html>
